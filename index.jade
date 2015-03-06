@@ -1,0 +1,29 @@
+extends ./layout.jade
+
+block content
+  // Page Header
+  // Set your background image for this header on the line below.
+  header.intro-header(style="background-image: url('img/home-bg.jpg')")
+    .container
+      .row
+        .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+          .site-heading
+            h1 Clean Blog
+            hr.small
+            span.subheading A Clean Blog Theme by Start Bootstrap
+  // Main Content
+  .container
+    .row
+      .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+        - posts = {}
+        - posts['some-post'] = { title: 'Some pretty title', subtitle: 'Hello this is a nice post' }
+        - posts['another'] = { title: 'Another post', subtitle: 'Hey hello we rule the world babe' }
+        each post, slug in posts
+          .post-preview
+            a(href="/posts/#{slug}.html")
+              h2.post-title #{post.title}
+              h3.post-subtitle #{post.subtitle}
+            p.post-meta
+              | Posted by
+              a(href='#') Start Bootstrap
+              |  on September 24, 2014
